@@ -1,5 +1,7 @@
 #include "Game.h"
 #include "raylib.h"
+#include "Universe/Univers.h"
+
 Game::Game()
 {
 }
@@ -11,7 +13,7 @@ Game::~Game()
 bool Game::Initialise()
 {
 	SetTargetFPS(60);
-	InitWindow(800, 600, "Jeu CPP");
+	InitWindow(800, 800, "Airplane Game");
 	return false;
 }
 
@@ -42,7 +44,7 @@ void Game::UpdateGame()
 void Game::GenerateOutput()
 {
 	BeginDrawing();
-	ClearBackground(BLACK);
-	DrawCircleV(_ballPos, 20.0f, PINK);
+	ClearBackground(BLUE);
+	DrawCircleV(_ballPos, 20.0f, RED);
 	EndDrawing();
 }
