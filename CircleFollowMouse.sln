@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CircleFollowMouse", "CircleFollowMouse\CircleFollowMouse.vcxproj", "{D382C9D7-3F99-C76D-8810-538FF46598F5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8898EA18-743A-15EF-5DF5-284349369C3F} = {8898EA18-743A-15EF-5DF5-284349369C3F}
@@ -24,8 +26,8 @@ Global
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug.DLL|Win32.Build.0 = Debug.DLL|Win32
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug.DLL|x64.ActiveCfg = Debug.DLL|x64
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug.DLL|x64.Build.0 = Debug.DLL|x64
-		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|Win32.ActiveCfg = Debug|Win32
-		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|Win32.Build.0 = Debug|Win32
+		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|Win32.ActiveCfg = Debug|x64
+		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|Win32.Build.0 = Debug|x64
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|x64.ActiveCfg = Debug|x64
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Debug|x64.Build.0 = Debug|x64
 		{D382C9D7-3F99-C76D-8810-538FF46598F5}.Release.DLL|Win32.ActiveCfg = Release.DLL|Win32
@@ -40,8 +42,8 @@ Global
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug.DLL|Win32.Build.0 = Debug.DLL|Win32
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug.DLL|x64.ActiveCfg = Debug.DLL|x64
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug.DLL|x64.Build.0 = Debug.DLL|x64
-		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|Win32.ActiveCfg = Debug|Win32
-		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|Win32.Build.0 = Debug|Win32
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|Win32.ActiveCfg = Debug|x64
+		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|Win32.Build.0 = Debug|x64
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|x64.ActiveCfg = Debug|x64
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Debug|x64.Build.0 = Debug|x64
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release.DLL|Win32.ActiveCfg = Release.DLL|Win32
@@ -55,5 +57,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E331D746-ED81-4BDB-9E9B-0FB2FAEEC8F7}
 	EndGlobalSection
 EndGlobal
