@@ -78,7 +78,7 @@ void Game::GenerateOutput()
 	}*/
 
 	DrawCircleV(_ballPos, 20.0f, RED);
-	float angleH = std::atan2(1, 3);
+	/*float angleH = std::atan2(1, 3);
 	float angleL = angleH + 0.3 + PI / 2;
 	float angleR = angleH + 0.3 + PI / 2;
 
@@ -98,7 +98,7 @@ void Game::GenerateOutput()
 	};
 
 	DrawTriangleLines(head, TailR, { 100 ,100}, WHITE);
-	DrawTriangleLines(head, { 100 , 100 }, TailL, WHITE);
+	DrawTriangleLines(head, { 100 , 100 }, TailL, WHITE);*/
 
 	DrawFPS(100, 50); // images / sec
 	EndDrawing();
