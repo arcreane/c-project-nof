@@ -8,7 +8,7 @@ AvionDeChasse::AvionDeChasse(Vector2 pos, int pv) {
     this->myImage = LoadImage("Pictures/avion1_gauche.png");
     this->myTexture = LoadTextureFromImage(myImage);
 }
-AvionDeChasse::~AvionDeChasse() {};
+AvionDeChasse::~AvionDeChasse() {}
 
 void AvionDeChasse::update() {
 
@@ -49,3 +49,5 @@ void AvionDeChasse::virtualize()
     // Initialiser position
     myPos = { 350.0f, 350.0f };
 }
+
+void AvionDeChasse::tirerProjectile(Projectile* p) {}

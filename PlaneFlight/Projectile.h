@@ -2,15 +2,18 @@
 #include "raylib.h"
 #include "Jeu.h"
 
-// CLASSE ABSTRAITE
-// non instanciable
 class Projectile : public Jeu
 {
-protected:
+private:
 	int myPVitesse;
 public:
+	//Constructeur
+	Projectile(int vitesseP);
+
 	// Fonction en +
-	virtual void exploser() = 0;
+	void exploser();
+	void virtualize() override;
+	void update() override;
 
 	// getter / setter en +
 	int getMyVitesse() { return myPVitesse; };

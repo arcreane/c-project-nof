@@ -6,8 +6,9 @@ Helicoptere::Helicoptere(Vector2 pos, int pv, int state) {
     this->myTexture = LoadTextureFromImage(myImage);
     this->myPv = pv;
     this->state = state;
-};
-Helicoptere::~Helicoptere() {};
+}
+
+Helicoptere::~Helicoptere() {}
 
 void Helicoptere::augmenterPV() {
     if (myPv < 50) {

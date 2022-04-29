@@ -5,15 +5,14 @@
 class AvionEnnemi : public Avion {
 public:
 	// constructeur
-	AvionEnnemi(Vector2 pos, int pv);
+	AvionEnnemi(Vector2 pos, int pv , int vitProj);
 
 	// Fonctions héritées de Jeu
 	void update() override;
 	void virtualize() override;
 	// Fonction en +
-	//void tirer(Projectile p);
+	void tirerProjectile(Projectile* p) override;
 
 	// Destructeur
 	~AvionEnnemi();
 };
-

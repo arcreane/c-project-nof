@@ -10,8 +10,7 @@ public:
     // Fonctions héritées de Jeu
     void update() override;
     void virtualize() override;
-    // Fonction en +
-    //void tirer(Projectile p);
+    void tirerProjectile(Projectile* p) override;
 
     // Destructeur
     ~AvionDeChasse();

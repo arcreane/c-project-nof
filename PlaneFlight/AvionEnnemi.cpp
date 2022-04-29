@@ -1,12 +1,18 @@
+#include <iostream>
 #include "AvionEnnemi.h"
+#include "Projectile.h"
 
-AvionEnnemi::AvionEnnemi(Vector2 pos, int pv) {
+
+AvionEnnemi::AvionEnnemi(Vector2 pos, int pv, int vitProj) {
     this->myPos = pos;
     this->myPv = pv;
     this->myImage = LoadImage("Pictures/avion2_droite.png");
     this->myTexture = LoadTextureFromImage(myImage);
+    this->myVitProj = vitProj;
+    //this->myProjectiles = new Projectile[nbProj];
 }
-AvionEnnemi::~AvionEnnemi() {};
+
+AvionEnnemi::~AvionEnnemi() {}
 
 void AvionEnnemi::update() {
     if (IsKeyPressed(KEY_D))
@@ -46,3 +52,5 @@ void AvionEnnemi::virtualize(){
     // Initialiser position
     myPos = { 150.0f, 750.0f };
 }
+
+void AvionEnnemi::tirerProjectile(Projectile* p){}
