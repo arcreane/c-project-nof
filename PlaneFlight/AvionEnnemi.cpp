@@ -1,27 +1,35 @@
 #include "AvionEnnemi.h"
 
+AvionEnnemi::AvionEnnemi(Vector2 pos, int pv) {
+    this->myPos = pos;
+    this->myPv = pv;
+    this->myImage = LoadImage("Pictures/avion2_droite.png");
+    this->myTexture = LoadTextureFromImage(myImage);
+}
+AvionEnnemi::~AvionEnnemi() {};
+
 void AvionEnnemi::update() {
-    if (IsKeyPressed(KEY_B))
+    if (IsKeyPressed(KEY_D))
     {
         myPos.x += 10.0f;
         myImage = LoadImage("Pictures/avion2_droite.png");
         myTexture = LoadTextureFromImage(myImage);
         UnloadImage(myImage);
     }
-    else if (IsKeyPressed(KEY_C)) {
+    else if (IsKeyPressed(KEY_Q)) {
         myPos.x -= 10.0f;
         myImage = LoadImage("Pictures/avion2_gauche.png");
         myTexture = LoadTextureFromImage(myImage);
         UnloadImage(myImage);
     }
 
-    else if (IsKeyPressed(KEY_F)) {
+    else if (IsKeyPressed(KEY_Z)) {
         myPos.y -= 10.0f;
         myImage = LoadImage("Pictures/avion2_haut.png");
         myTexture = LoadTextureFromImage(myImage);
         UnloadImage(myImage);
     }
-    else if (IsKeyPressed(KEY_V)) {
+    else if (IsKeyPressed(KEY_S)) {
         myPos.y += 10.0f;
         myImage = LoadImage("Pictures/avion2_bas.png");
         myTexture = LoadTextureFromImage(myImage);
@@ -30,7 +38,7 @@ void AvionEnnemi::update() {
 
 };
 
-void AvionEnnemi::virtualizePlane(){
+void AvionEnnemi::virtualize(){
     // Initialiser texture/image
     myTexture = LoadTextureFromImage(myImage);
     UnloadImage(myImage);

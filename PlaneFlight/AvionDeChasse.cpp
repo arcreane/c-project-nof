@@ -2,6 +2,14 @@
 #include "raylib.h"
 
 
+AvionDeChasse::AvionDeChasse(Vector2 pos, int pv) {
+    this->myPos = pos;
+    this->myPv = pv;
+    this->myImage = LoadImage("Pictures/avion1_gauche.png");
+    this->myTexture = LoadTextureFromImage(myImage);
+}
+AvionDeChasse::~AvionDeChasse() {};
+
 void AvionDeChasse::update() {
 
     if (IsKeyPressed(KEY_RIGHT))
@@ -32,7 +40,7 @@ void AvionDeChasse::update() {
     }
 }
 
-void AvionDeChasse::virtualizePlane()
+void AvionDeChasse::virtualize()
 {
     // Initialiser texture/image
     myTexture = LoadTextureFromImage(myImage);

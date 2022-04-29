@@ -1,5 +1,7 @@
 #include "raylib.h"
-
+#include "Avion.h"
+#include "AvionDeChasse.h"
+#include "AvionEnnemi.h"
 #include "raymath.h"        // Required for: MatrixRotateXYZ()
 
 int main(void)

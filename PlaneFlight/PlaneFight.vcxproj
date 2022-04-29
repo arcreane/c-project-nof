@@ -336,12 +336,14 @@
     <ClCompile Include="AvionEnnemi.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="mainGame.cpp" />
+    <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Avion.h" />
     <ClInclude Include="AvionDeChasse.h" />
     <ClInclude Include="AvionEnnemi.h" />
     <ClInclude Include="Jeu.h" />
+    <ClInclude Include="Projectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
