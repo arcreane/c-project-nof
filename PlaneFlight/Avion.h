@@ -4,7 +4,7 @@
 
 // CLASSE ABSTRAITE
 // non instanciable
-class Avion :public Jeu {
+class Avion :virtual public Jeu {
 protected:
     int myPv;
 public:

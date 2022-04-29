@@ -334,6 +334,8 @@
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="AvionDeChasse.cpp" />
     <ClCompile Include="AvionEnnemi.cpp" />
+    <ClCompile Include="Bouclier.cpp" />
+    <ClCompile Include="Helicoptere.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="mainGame.cpp" />
     <ClCompile Include="Projectile.cpp" />
@@ -342,6 +344,8 @@
     <ClInclude Include="Avion.h" />
     <ClInclude Include="AvionDeChasse.h" />
     <ClInclude Include="AvionEnnemi.h" />
+    <ClInclude Include="Bouclier.h" />
+    <ClInclude Include="Helicoptere.h" />
     <ClInclude Include="Jeu.h" />
     <ClInclude Include="Projectile.h" />
   </ItemGroup>
