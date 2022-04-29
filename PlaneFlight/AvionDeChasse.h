@@ -5,6 +5,7 @@
 class AvionDeChasse: public Avion {
 public:
     // Constructeur
+    AvionDeChasse();
     AvionDeChasse(Vector2 pos, int pv);
 
     // Fonctions héritées de Jeu

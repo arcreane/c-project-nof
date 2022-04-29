@@ -2,7 +2,14 @@
 #include "Avion.h"
 #include "AvionDeChasse.h"
 #include "AvionEnnemi.h"
-#include "raymath.h"        // Required for: MatrixRotateXYZ()
+#include "Jeu.h"
+#include "Bouclier.h"
+#include "Helicoptere.h"
+#include "Projectile.h"
+#include "raymath.h"    
+#include <iostream>
+
+// Required for: MatrixRotateXYZ()
 
 int main(void)
 {
@@ -13,18 +20,22 @@ int main(void)
 
     InitWindow(screenWidth, screenHeight, "PlaneFight");
 
+
     // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
 
-    Image image1 = LoadImage("Pictures/avion1_droite.png");
+    /*Image image1 = LoadImage("Pictures/avion1_droite.png");
     Image image2 = LoadImage("Pictures/avion2_gauche.png");
     // Loaded in CPU memory (RAM)
     Texture2D texture1 = LoadTextureFromImage(image1);   
     Texture2D texture2 = LoadTextureFromImage(image2);     // Image converted to texture, GPU memory (VRAM)
     UnloadImage(image1);   // Once image has been converted to texture and uploaded to VRAM, it can be unloaded from RAM
     UnloadImage(image2);
+    */
+    Vector2 position1 = { 550.0f, 250.0f };
+    Vector2 position2 = { 0.0f, 100.0f };
+    AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
+    AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
 
-    Vector2 position1 = { 350.0f, 280.0f };
-    Vector2 position2 = { 0.0f, 0.0f };
     SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
     //---------------------------------------------------------------------------------------
     
@@ -35,7 +46,7 @@ int main(void)
         //----------------------------------------------------------------------------------
         // TODO: Update your variables here
         //----------------------------------------------------------------------------------
-        if (IsKeyPressed(KEY_RIGHT)) 
+       /* if (IsKeyPressed(KEY_RIGHT))
         {
             position1.x += 10.0f;
             image1 = LoadImage("Pictures/avion1_droite.png");
@@ -88,15 +99,21 @@ int main(void)
             image2 = LoadImage("Pictures/avion2_bas.png");
             texture2 = LoadTextureFromImage(image2);
             UnloadImage(image2);
-        }
+        }*/
         // Draw
         
+        adc1->virtualize();
+        ae1->virtualize();
+
+        adc1->update();
+        ae1->update();
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawTextureV(texture1, position1, WHITE);
-        DrawTextureV(texture2, position2, WHITE);
+        DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
+        DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
         //DrawText("this IS a texture loaded from an image!", 300, 370, 10, GRAY);
 
         EndDrawing();
@@ -105,9 +122,9 @@ int main(void)
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadTexture(texture1);  
+    /*UnloadTexture(texture1);
     UnloadTexture(texture2);// Texture unloading
-
+    */
     CloseWindow();                // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
