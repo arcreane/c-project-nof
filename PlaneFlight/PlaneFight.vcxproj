@@ -335,9 +335,11 @@
     <ClCompile Include="AvionDeChasse.cpp" />
     <ClCompile Include="AvionEnnemi.cpp" />
     <ClCompile Include="Bouclier.cpp" />
+    <ClCompile Include="Ciel.cpp" />
     <ClCompile Include="Helicoptere.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="mainGame.cpp" />
+    <ClCompile Include="Nuage.cpp" />
     <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -345,8 +347,10 @@
     <ClInclude Include="AvionDeChasse.h" />
     <ClInclude Include="AvionEnnemi.h" />
     <ClInclude Include="Bouclier.h" />
+    <ClInclude Include="Ciel.h" />
     <ClInclude Include="Helicoptere.h" />
     <ClInclude Include="Jeu.h" />
+    <ClInclude Include="Nuage.h" />
     <ClInclude Include="Projectile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

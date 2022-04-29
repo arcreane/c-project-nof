@@ -110,7 +110,7 @@ int main(void)
 
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(DARKBLUE);
 
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
         DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
