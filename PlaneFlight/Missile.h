@@ -7,6 +7,7 @@ class Missile : public Projectile
 public:
 	// Constructeur
 	Missile();
+	Missile(int vitesse);
 
 	//Fonctions héritées
 	//void exploser() override;
