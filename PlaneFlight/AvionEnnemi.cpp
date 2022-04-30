@@ -23,23 +23,13 @@ void AvionEnnemi::update() {
         myPos.x += 10.0f;
         myImage = LoadImage("Pictures/avion2_droite.png");
         myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
-        droite = true;
-        haut = false;
-        bas = false;
-        gauche = false;
-
-       
+        //UnloadImage(myImage);       
     }
     else if (IsKeyPressed(KEY_C)) {
         myPos.x -= 10.0f;
         myImage = LoadImage("Pictures/avion2_gauche.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = false;
-        bas = false;
-        gauche = true;
     }
 
     else if (IsKeyPressed(KEY_F)) {
@@ -47,20 +37,12 @@ void AvionEnnemi::update() {
         myImage = LoadImage("Pictures/avion2_haut.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = true;
-        bas = false;
-        gauche = false;
     }
     else if (IsKeyPressed(KEY_V)) {
         myPos.y += 10.0f;
         myImage = LoadImage("Pictures/avion2_bas.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = false;
-        bas = true;
-        gauche = false;
     }
 
     /*if (IsKeyPressed(KEY_SPACE) && droite == true) {

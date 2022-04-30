@@ -1,17 +1,17 @@
 #pragma once
 #include "Projectile.h"
-#include "raylib.h"
+
 
 class Missile : public Projectile
 {
 public:
-	// constructeur
-	Missile(int vitesse);
+	// Constructeur
+	Missile();
 
-	// Fonction
-	void exploser() override;
-	void virtualize() override;
+	//Fonctions héritées
+	//void exploser() override;
 	void update() override;
+	void virtualize() override;
 
 	// Destructeur
 	~Missile();

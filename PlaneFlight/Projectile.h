@@ -1,11 +1,11 @@
 #pragma once
 #include "raylib.h"
 #include "Jeu.h"
-#include "Avion.h"
 
-class Projectile : public virtual Jeu
+
+class Projectile : virtual public Jeu
 {
-private:
+protected:
 	int myPVitesse;
 public:
 	//Constructeur
@@ -13,12 +13,14 @@ public:
 	Projectile(int vitesseP);
 
 	// Fonction en +
-	virtual void exploser() = 0;
-	void virtualize() override;
-	void update() override;
+
+	//virtual void exploser() = 0;
 
 	// getter / setter en +
 	int getMyVitesse() { return myPVitesse; };
 	void setMyPVitesse(int vitesse);
+
+	//Destructeur
+	~Projectile();
 };
 

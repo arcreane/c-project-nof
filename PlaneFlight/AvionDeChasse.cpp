@@ -19,20 +19,14 @@ void AvionDeChasse::update() {
         myImage = LoadImage("Pictures/avion1_droite.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = true;
-        haut = false;
-        bas = false;
-        gauche = false;
+       
     }
     else if (IsKeyPressed(KEY_LEFT)) {
         myPos.x -= 10.0f;
         myImage = LoadImage("Pictures/avion1_gauche.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = false;
-        bas = false;
-        gauche = true;
+       
     }
 
     else if (IsKeyPressed(KEY_UP)) {
@@ -40,20 +34,14 @@ void AvionDeChasse::update() {
         myImage = LoadImage("Pictures/avion1_haut.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = true;
-        bas = false;
-        gauche = false;
+        
     }
     else if (IsKeyPressed(KEY_DOWN)) {
         myPos.y += 10.0f;
         myImage = LoadImage("Pictures/avion1_bas.png");
         myTexture = LoadTextureFromImage(myImage);
         //UnloadImage(myImage);
-        droite = false;
-        haut = false;
-        bas = true;
-        gauche = false;
+        
     }
 }
 

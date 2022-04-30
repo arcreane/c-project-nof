@@ -36,7 +36,7 @@ int main(void)
     Vector2 position2 = { 0.0f, 100.0f };
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
-    Projectile* p1 = new Missile(1);
+    //Projectile* p1 = new Missile(1);
 
     SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
     //---------------------------------------------------------------------------------------
@@ -106,11 +106,11 @@ int main(void)
         
         adc1->virtualize();
         ae1->virtualize();
-        p1->virtualize();
+        //p1->virtualize();
 
         adc1->update();
         ae1->update();
-        p1->update();
+        //p1->update();
 
         BeginDrawing();
 
@@ -118,7 +118,7 @@ int main(void)
 
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
         DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
-        DrawTextureV(p1->getMyTexture(), p1->getMyPos(), WHITE);
+        //DrawTextureV(p1->getMyTexture(), p1->getMyPos(), WHITE);
         //DrawText("this IS a texture loaded from an image!", 300, 370, 10, GRAY);
 
         EndDrawing();

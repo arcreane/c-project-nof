@@ -1,17 +1,16 @@
 #include "Projectile.h"
 
-Projectile::Projectile()
-{
-}
+
+Projectile::Projectile(){}
 
 Projectile::Projectile(int vitesse)
 {
     myPVitesse = vitesse;
 }
 
-void Projectile::exploser(){}
+/*void Projectile::exploser() {}*/
 
-void Projectile::virtualize()
+/*void Projectile::virtualize()
 {
     // Initialiser texture/image
     myTexture = LoadTextureFromImage(myImage);
@@ -21,7 +20,7 @@ void Projectile::virtualize()
     
 }
 
-void Projectile::update()
+void Projectile::update(int vitesse)
 { 
     // if (IsKeyPressed(KEY_SPACE))
     // si Avion position vers la gauche: alors myImage= Bomb vers la gauche
@@ -30,10 +29,16 @@ void Projectile::update()
     // ...
     /*if (a1.getMyPos().x == getMyPos().x && a1.getMyPos().y == getMyPos().y) { // Si les coordonnées du projectile correspondent à celle de l'avion cible alors exlposion
         exploser();
-    }*/
+    }
     
 }
+*/
 
 void Projectile::setMyPVitesse(int vitesse) {
 	myPVitesse = vitesse;
-};
+}
+Projectile::~Projectile()
+{
+}
+
+;
