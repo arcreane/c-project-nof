@@ -11,7 +11,7 @@ public:
 	void update() override;
 	void virtualize() override;
 	// Fonction en +
-	void tirerProjectile(Projectile* p) override;
+	// void tirerProjectile(Projectile* p, int i, Avion a1) override;
 
 	// Destructeur
 	~AvionEnnemi();

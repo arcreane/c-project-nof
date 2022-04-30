@@ -1,17 +1,19 @@
 #pragma once
 #include "raylib.h"
 #include "Jeu.h"
+#include "Avion.h"
 
-class Projectile : public Jeu
+class Projectile : public virtual Jeu
 {
 private:
 	int myPVitesse;
 public:
 	//Constructeur
+	Projectile();
 	Projectile(int vitesseP);
 
 	// Fonction en +
-	void exploser();
+	virtual void exploser() = 0;
 	void virtualize() override;
 	void update() override;
 

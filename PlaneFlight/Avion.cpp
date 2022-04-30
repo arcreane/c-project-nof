@@ -27,6 +27,6 @@ void Avion::setPv(int i){
     myPv = i;
 }
 
-void Avion::tirerProjectile(Projectile* p)
+/*void Avion::tirerProjectile(Projectile* p, int i, Avion a1)
 {
-}
+}*/
