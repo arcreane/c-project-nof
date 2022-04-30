@@ -6,7 +6,9 @@
 #include "Bouclier.h"
 #include "Helicoptere.h"
 #include "Projectile.h"
-#include "raymath.h"    
+#include "raymath.h"   
+#include "Ciel.h"
+#include "Nuage.h"
 #include <iostream>
 
 // Required for: MatrixRotateXYZ()
@@ -33,77 +35,30 @@ int main(void)
     */
     Vector2 position1 = { 550.0f, 250.0f };
     Vector2 position2 = { 0.0f, 100.0f };
+    Vector2 position3 = { 10.0f, 40.0f };
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
+    Nuage* nuage = new Nuage(position3);
+  
 
+    Texture2D background = LoadTexture("Pictures/FOND-CIEL.png");
+
+
+    float scrollingBack = 0.0f;
     SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
     //---------------------------------------------------------------------------------------
     
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-       /* if (IsKeyPressed(KEY_RIGHT))
-        {
-            position1.x += 10.0f;
-            image1 = LoadImage("Pictures/avion1_droite.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }
-        else if (IsKeyPressed(KEY_LEFT)) {
-            position1.x -= 10.0f;
-            image1 = LoadImage("Pictures/avion1_gauche.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }  
+        
+        scrollingBack -= 0.5f;
 
-        else if (IsKeyPressed(KEY_UP)) {
-            position1.y -= 10.0f;
-            image1 = LoadImage("Pictures/avion1_haut.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }
-        else if (IsKeyPressed(KEY_DOWN)) {
-            position1.y += 10.0f;
-            image1 = LoadImage("Pictures/avion1_bas.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        } 
-
-
-        if (IsKeyPressed(KEY_B))
-        {
-            position2.x += 10.0f;
-            image2 = LoadImage("Pictures/avion2_droite.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-        else if (IsKeyPressed(KEY_C)) {
-            position2.x -= 10.0f;
-            image2 = LoadImage("Pictures/avion2_gauche.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-
-        else if (IsKeyPressed(KEY_F)) {
-            position2.y -= 10.0f;
-            image2 = LoadImage("Pictures/avion2_haut.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-        else if (IsKeyPressed(KEY_V)) {
-            position2.y += 10.0f;
-            image2 = LoadImage("Pictures/avion2_bas.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }*/
-        // Draw
+        if (scrollingBack <= -background.width * 2) scrollingBack = 0;
         
         adc1->virtualize();
         ae1->virtualize();
+  
 
         adc1->update();
         ae1->update();
@@ -112,6 +67,10 @@ int main(void)
 
         ClearBackground(DARKBLUE);
 
+        DrawTextureEx(background, Vector2 { scrollingBack, 20 }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background, Vector2 { background.width * 2 + scrollingBack, 20 }, 0.0f, 2.0f, WHITE);
+    
+   
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
         DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
         //DrawText("this IS a texture loaded from an image!", 300, 370, 10, GRAY);
@@ -125,6 +84,10 @@ int main(void)
     /*UnloadTexture(texture1);
     UnloadTexture(texture2);// Texture unloading
     */
+
+    UnloadTexture(background);
+
+
     CloseWindow();                // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 
