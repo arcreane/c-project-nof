@@ -38,10 +38,10 @@ int main(void)
     Vector2 position3 = { 10.0f, 40.0f };
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
-    Nuage* nuage = new Nuage(position3);
+    
   
 
-    Texture2D background = LoadTexture("Pictures/FOND-CIEL.png");
+    Texture2D background = LoadTexture("Pictures/nuage.png");
 
 
     float scrollingBack = 0.0f;
