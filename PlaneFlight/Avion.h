@@ -31,6 +31,16 @@ public:
     int getPv();
     void setPv(int i);
 
+    bool getDroite();
+    bool getGauche();
+    bool getHaut();
+    bool getBas();
+
+    void setDroite(bool param);
+    void setGauche(bool param);
+    void setHaut(bool param);
+    void setBas(bool param);
+
     // Destructeur
     ~Avion();
 };

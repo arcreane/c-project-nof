@@ -18,7 +18,7 @@ Missile::Missile(int vitesse, Vector2 pos)
 
 void Missile::update()
 {
-	myPos.x += getMyVitesse();
+	this->myPos.x += getMyVitesse();
 	
 }
 
@@ -35,10 +35,6 @@ void Missile::virtualize()
 
 }
 
-/*void Missile::setIsVisible(bool param)
-{
-	this->isVisible = param;
-}*/
 
 Missile::~Missile()
 {

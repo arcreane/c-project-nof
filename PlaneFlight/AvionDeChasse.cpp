@@ -17,31 +17,23 @@ void AvionDeChasse::update() {
     {
         myPos.x += 10.0f;
         myImage = LoadImage("Pictures/avion1_droite.png");
-        myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
-       
+        myTexture = LoadTextureFromImage(myImage);       
     }
     else if (IsKeyPressed(KEY_LEFT)) {
         myPos.x -= 10.0f;
         myImage = LoadImage("Pictures/avion1_gauche.png");
         myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
-       
     }
 
     else if (IsKeyPressed(KEY_UP)) {
         myPos.y -= 10.0f;
         myImage = LoadImage("Pictures/avion1_haut.png");
         myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
-        
     }
     else if (IsKeyPressed(KEY_DOWN)) {
         myPos.y += 10.0f;
         myImage = LoadImage("Pictures/avion1_bas.png");
-        myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
-        
+        myTexture = LoadTextureFromImage(myImage);        
     }
 }
 
@@ -49,8 +41,4 @@ void AvionDeChasse::virtualize()
 {
     // Initialiser texture/image
     myTexture = LoadTextureFromImage(myImage);
-    //UnloadImage(myImage);
-
 }
-
-//void AvionDeChasse::tirerProjectile(Projectile* p, int i) {}

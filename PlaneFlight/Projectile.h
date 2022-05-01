@@ -7,6 +7,7 @@ class Projectile : virtual public Jeu
 {
 protected:
 	int myPVitesse;
+	bool isVisible = false;
 public:
 	//Constructeur
 	Projectile();
@@ -19,6 +20,9 @@ public:
 	// getter / setter en +
 	int getMyVitesse() { return myPVitesse; };
 	void setMyPVitesse(int vitesse);
+
+	bool getIsVisible() { return isVisible; };
+	void setIsVisible(bool param);
 
 	//Destructeur
 	~Projectile();

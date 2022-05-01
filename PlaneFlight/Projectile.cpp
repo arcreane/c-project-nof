@@ -37,6 +37,10 @@ void Projectile::update(int vitesse)
 void Projectile::setMyPVitesse(int vitesse) {
 	myPVitesse = vitesse;
 }
+void Projectile::setIsVisible(bool param)
+{
+    isVisible = param;
+}
 Projectile::~Projectile()
 {
 }
