@@ -36,7 +36,7 @@ int main(void)
     Vector2 position2 = { 0.0f, 100.0f };
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
-    Projectile* p1 = new Missile(2);
+    Projectile* p1 = new Missile(1,{ 50.0f, 180.0f });
 
     SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
     //---------------------------------------------------------------------------------------

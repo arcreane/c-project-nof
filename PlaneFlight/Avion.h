@@ -11,6 +11,10 @@ class Avion :virtual public Jeu {
 protected:
     int myPv;
     int myVitProj; // vitesse projectile
+    bool droite = false;
+    bool gauche = false;
+    bool bas = false;
+    bool haut = false;
 
 public:
     // Constructeur

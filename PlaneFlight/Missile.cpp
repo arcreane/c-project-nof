@@ -4,10 +4,10 @@ Missile::Missile()
 {
 }
 
-Missile::Missile(int vitesse)
+Missile::Missile(int vitesse, Vector2 pos)
 {
 	myPVitesse = vitesse;
-	this->myPos = { 0.0f , 0.0f };
+	this->myPos = pos;
 	this->myImage = LoadImage("Pictures/Bomb_droite.png");
 
 }
@@ -21,6 +21,12 @@ void Missile::update()
 	this->myPos.x += getMyVitesse();
 	
 }
+
+/*void Missile::updateMissile(Vector2 pos) {
+	this->myPos = pos;
+	this->myPos.x += getMyVitesse();
+
+}*/
 
 void Missile::virtualize()
 {
