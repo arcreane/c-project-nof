@@ -83,30 +83,30 @@ int main(void)
 
         }
         if (IsKeyPressed(KEY_SPACE) && ae1->getHaut() == true) {
-            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f });
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 15.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
             m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f }, WHITE);
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 15.0f }, WHITE);
         }
 
         if (IsKeyPressed(KEY_SPACE) && ae1->getBas() == true) {
-            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f });
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 25.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
             m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f }, WHITE);
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 25.0f }, WHITE);
         }
 
 
 
 
 
-        if (IsKeyPressed(KEY_SPACE) && adc1->getDroite() == true) {
+        if (IsKeyPressed(KEY_P) && adc1->getDroite() == true) {
             Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 160.0f,adc1->getMyPos().y + 10.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
@@ -115,7 +115,7 @@ int main(void)
             m2->update();
             DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 160.0f,adc1->getMyPos().y + 10.0f }, WHITE);
         }
-        else if (IsKeyPressed(KEY_SPACE) && adc1->getGauche() == true) {
+        else if (IsKeyPressed(KEY_P) && adc1->getGauche() == true) {
             Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 20.0f,adc1->getMyPos().y + 5.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
@@ -125,24 +125,24 @@ int main(void)
             DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 20.0f,adc1->getMyPos().y + 5.0f }, WHITE);
 
         }
-        if (IsKeyPressed(KEY_SPACE) && adc1->getHaut() == true) {
-            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 5.0f });
+        if (IsKeyPressed(KEY_P) && adc1->getHaut() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
             m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 5.0f }, WHITE);
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f }, WHITE);
         }
 
-        if (IsKeyPressed(KEY_SPACE) && adc1->getBas() == true) {
-            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f });
+        if (IsKeyPressed(KEY_P) && adc1->getBas() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 45.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
             m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f }, WHITE);
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 45.0f }, WHITE);
         }
 
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
