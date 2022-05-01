@@ -37,7 +37,7 @@ int main(void)
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
     //Projectile* p1 = new Missile(1,{ 50.0f, 180.0f });
-    Projectile* m2 = new Missile(1, { ae1->getMyPos().x +40.0f,ae1->getMyPos().y +5.0f});
+    //Projectile* m2 = new Missile(1, { ae1->getMyPos().x +40.0f,ae1->getMyPos().y +5.0f});
 
 
     SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
@@ -120,17 +120,20 @@ int main(void)
         ClearBackground(DARKBLUE);
 
         bool visible = false;
+        Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f });
 
         if (IsKeyPressed(KEY_SPACE) && ae1->getDroite() == true) {
             m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
+            //DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
         }
         else if (IsKeyPressed(KEY_SPACE) && ae1->getGauche() == true) {
             // Missile* m1 = new Missile(1, myPos);
             m2->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
+            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
 
         }
         if (IsKeyPressed(KEY_SPACE) && ae1->getHaut() == true) {
@@ -138,6 +141,7 @@ int main(void)
             m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
+            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
         }
 
         if (IsKeyPressed(KEY_SPACE) && ae1->getBas() == true) {
@@ -145,21 +149,23 @@ int main(void)
             m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
+            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
         }
 
+        m2->virtualize();
 
         //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
         if (m2->getIsVisible() == true)
         {
-            m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
         }
 
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
         DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
+        //DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
         //DrawTextureV(p1->getMyTexture(), p1->getMyPos(), WHITE);
-        DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
+        //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
         //DrawText("this IS a texture loaded from an image!", 300, 370, 10, GRAY);
 
         EndDrawing();
