@@ -4,17 +4,7 @@
 #include "raylib.h"
 #include "Projectile.h"
 
-/*Avion::Avion(Vector2 pos, int pv, int vitProj) {
-    this->myPos = pos;
-    this->myPv = pv;
-    this->myVitProj = vitProj;
 
-    // initialiser tableau de projectiles
-    this->myProjectiles[0] = new Projectile(vitProj);
-    this->myProjectiles[1] = new Projectile(vitProj);
-    this->myProjectiles[2] = new Projectile(vitProj);
-    this->myProjectiles[3] = new Projectile(vitProj);
-}*/
 Avion::Avion(){}
 
 Avion::~Avion(){}
@@ -62,6 +52,3 @@ void Avion::setBas(bool param){
 
 
 
-/*void Avion::tirerProjectile(Projectile* p, int i, Avion a1)
-{
-}*/

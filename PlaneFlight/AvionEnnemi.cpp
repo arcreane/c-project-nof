@@ -54,7 +54,6 @@ void AvionEnnemi::update() {
         myPos.y -= 10.0f;
         myImage = LoadImage("Pictures/avion2_haut.png");
         myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
         droite = false;
         gauche = false;
         haut = true;
@@ -64,60 +63,18 @@ void AvionEnnemi::update() {
         myPos.y += 10.0f;
         myImage = LoadImage("Pictures/avion2_bas.png");
         myTexture = LoadTextureFromImage(myImage);
-        //UnloadImage(myImage);
         droite = false;
         gauche = false;
         haut = false;
         bas = true;
     }
-    BeginDrawing();
-
-    Projectile* m2 = new Missile(1, myPos);
-    bool visible = false;
-
-    if (IsKeyPressed(KEY_SPACE) && droite == true) {
-        m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
-        m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
-        m2->update();
-        m2->setIsVisible(true);
-    }
-    else if (IsKeyPressed(KEY_SPACE) && gauche == true) {
-        // Missile* m1 = new Missile(1, myPos);
-        m2->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
-        m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
-        m2->update();
-        m2->setIsVisible(true);
-
-    }
-    if (IsKeyPressed(KEY_SPACE) && haut == true) {
-        // Missile* m1 = new Missile(1, myPos);
-        m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
-        m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
-        m2->update();
-        m2->setIsVisible(true);
-    }
-
-    if (IsKeyPressed(KEY_SPACE) && bas == true) {
-        //Missile* m1 = new Missile(1, myPos);
-        m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
-        m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
-        m2->setIsVisible(true);
-        m2->update();
-
-    }
-
-
-    //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
-    if (m2->getIsVisible() == true)
-    {
-        DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
-    }
-};
+   
+}
 
 void AvionEnnemi::virtualize(){
     // Initialiser texture/image
     myTexture = LoadTextureFromImage(myImage);
-    //UnloadImage(myImage);
+    
 
 }
 

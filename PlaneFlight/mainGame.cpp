@@ -22,163 +22,143 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "PlaneFight");
 
 
-    // NOTE: Textures MUST be loaded after Window initialization (OpenGL context is required)
-
-    /*Image image1 = LoadImage("Pictures/avion1_droite.png");
-    Image image2 = LoadImage("Pictures/avion2_gauche.png");
-    // Loaded in CPU memory (RAM)
-    Texture2D texture1 = LoadTextureFromImage(image1);   
-    Texture2D texture2 = LoadTextureFromImage(image2);     // Image converted to texture, GPU memory (VRAM)
-    UnloadImage(image1);   // Once image has been converted to texture and uploaded to VRAM, it can be unloaded from RAM
-    UnloadImage(image2);
-    */
     Vector2 position1 = { 550.0f, 250.0f };
     Vector2 position2 = { 0.0f, 100.0f };
+    Vector2 position3 = { 10.0f, 40.0f };
+
     AvionDeChasse *adc1 = new AvionDeChasse(position1,100);
     AvionEnnemi* ae1 = new AvionEnnemi(position2,100, 2);
-    //Projectile* p1 = new Missile(1,{ 50.0f, 180.0f });
-    //Projectile* m2 = new Missile(1, { ae1->getMyPos().x +40.0f,ae1->getMyPos().y +5.0f});
+    Projectile* p1 = new Missile(1, position1);
+    Projectile* p2 = new Missile(1, position2);
+   
+    Texture2D background = LoadTexture("Pictures/nuage.png");
 
 
-    SetTargetFPS(60);     // Set our game to run at 60 frames-per-second
-    //---------------------------------------------------------------------------------------
-    
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    float scrollingBack = 0.0f;
+
+    SetTargetFPS(60);     
+
+    while (!WindowShouldClose())    
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-       /* if (IsKeyPressed(KEY_RIGHT))
-        {
-            position1.x += 10.0f;
-            image1 = LoadImage("Pictures/avion1_droite.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }
-        else if (IsKeyPressed(KEY_LEFT)) {
-            position1.x -= 10.0f;
-            image1 = LoadImage("Pictures/avion1_gauche.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }  
+      
+        scrollingBack -= 0.5f;
 
-        else if (IsKeyPressed(KEY_UP)) {
-            position1.y -= 10.0f;
-            image1 = LoadImage("Pictures/avion1_haut.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        }
-        else if (IsKeyPressed(KEY_DOWN)) {
-            position1.y += 10.0f;
-            image1 = LoadImage("Pictures/avion1_bas.png");
-            texture1 = LoadTextureFromImage(image1);
-            UnloadImage(image1);
-        } 
+        if (scrollingBack <= -background.width * 2) scrollingBack = 0;
 
-
-        if (IsKeyPressed(KEY_B))
-        {
-            position2.x += 10.0f;
-            image2 = LoadImage("Pictures/avion2_droite.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-        else if (IsKeyPressed(KEY_C)) {
-            position2.x -= 10.0f;
-            image2 = LoadImage("Pictures/avion2_gauche.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-
-        else if (IsKeyPressed(KEY_F)) {
-            position2.y -= 10.0f;
-            image2 = LoadImage("Pictures/avion2_haut.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }
-        else if (IsKeyPressed(KEY_V)) {
-            position2.y += 10.0f;
-            image2 = LoadImage("Pictures/avion2_bas.png");
-            texture2 = LoadTextureFromImage(image2);
-            UnloadImage(image2);
-        }*/
-        // Draw
         
         adc1->virtualize();
         ae1->virtualize();
-        //p1->virtualize();
-        
+        p1->virtualize();
+        p2->virtualize();
 
         adc1->update();
         ae1->update();
-        //p1->update();
+        p1->update();
+        p2->update();
 
         BeginDrawing();
 
         ClearBackground(DARKBLUE);
 
         bool visible = false;
-        Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f });
+        
 
         if (IsKeyPressed(KEY_SPACE) && ae1->getDroite() == true) {
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 160.0f,ae1->getMyPos().y + 10.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
-            //DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 160.0f,ae1->getMyPos().y + 10.0f }, WHITE);
         }
         else if (IsKeyPressed(KEY_SPACE) && ae1->getGauche() == true) {
-            // Missile* m1 = new Missile(1, myPos);
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 20.0f,ae1->getMyPos().y + 5.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
-            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 20.0f,ae1->getMyPos().y + 5.0f }, WHITE);
 
         }
         if (IsKeyPressed(KEY_SPACE) && ae1->getHaut() == true) {
-            // Missile* m1 = new Missile(1, myPos);
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
-            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f }, WHITE);
         }
 
         if (IsKeyPressed(KEY_SPACE) && ae1->getBas() == true) {
-            //Missile* m1 = new Missile(1, myPos);
+            Projectile* m2 = new Missile(1, { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f });
             m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
             m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
             m2->setIsVisible(true);
-            //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 120.0f,ae1->getMyPos().y + 5.0f }, WHITE);
         }
 
-        m2->virtualize();
 
-        //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
-        if (m2->getIsVisible() == true)
-        {
+
+
+
+        if (IsKeyPressed(KEY_SPACE) && adc1->getDroite() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 160.0f,adc1->getMyPos().y + 10.0f });
+            m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
+            m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
+            m2->setIsVisible(true);
+            m2->virtualize();
             m2->update();
-            DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 160.0f,adc1->getMyPos().y + 10.0f }, WHITE);
+        }
+        else if (IsKeyPressed(KEY_SPACE) && adc1->getGauche() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 20.0f,adc1->getMyPos().y + 5.0f });
+            m2->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
+            m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
+            m2->setIsVisible(true);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 20.0f,adc1->getMyPos().y + 5.0f }, WHITE);
+
+        }
+        if (IsKeyPressed(KEY_SPACE) && adc1->getHaut() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 5.0f });
+            m2->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
+            m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
+            m2->setIsVisible(true);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 5.0f }, WHITE);
+        }
+
+        if (IsKeyPressed(KEY_SPACE) && adc1->getBas() == true) {
+            Projectile* m2 = new Missile(1, { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f });
+            m2->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
+            m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
+            m2->setIsVisible(true);
+            m2->virtualize();
+            m2->update();
+            DrawTextureV(m2->getMyTexture(), { adc1->getMyPos().x + 120.0f,adc1->getMyPos().y + 15.0f }, WHITE);
         }
 
         DrawTextureV(adc1->getMyTexture(), adc1->getMyPos(), WHITE);
         DrawTextureV(ae1->getMyTexture(), ae1->getMyPos(), WHITE);
-        //DrawTextureV(m2->getMyTexture(), { ae1->getMyPos().x + 40.0f,ae1->getMyPos().y + 5.0f }, WHITE);
-        //DrawTextureV(p1->getMyTexture(), p1->getMyPos(), WHITE);
-        //DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
-        //DrawText("this IS a texture loaded from an image!", 300, 370, 10, GRAY);
+        DrawTextureV(p1->getMyTexture(), p1->getMyPos(), WHITE);
+        DrawTextureV(p2->getMyTexture(), p2->getMyPos(), WHITE);
+
+
+        DrawTextureEx(background, Vector2{ scrollingBack, 20 }, 0.0f, 2.0f, WHITE);
+        DrawTextureEx(background, Vector2{ background.width * 2 + scrollingBack, 20 }, 0.0f, 2.0f, WHITE);
 
         EndDrawing();
-        //----------------------------------------------------------------------------------
+        
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    /*UnloadTexture(texture1);
-    UnloadTexture(texture2);// Texture unloading
-    */
-    CloseWindow();                // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
-
+   
+    CloseWindow();                
     return 0;
 }
