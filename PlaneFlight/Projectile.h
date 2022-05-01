@@ -2,21 +2,24 @@
 #include "raylib.h"
 #include "Jeu.h"
 
-class Projectile : public Jeu
+
+class Projectile : virtual public Jeu
 {
-private:
+protected:
 	int myPVitesse;
 public:
 	//Constructeur
+	Projectile();
 	Projectile(int vitesseP);
 
 	// Fonction en +
-	void exploser();
-	void virtualize() override;
-	void update() override;
+
+	//virtual void exploser() = 0;
 
 	// getter / setter en +
 	int getMyVitesse() { return myPVitesse; };
 	void setMyPVitesse(int vitesse);
-};
 
+	//Destructeur
+	~Projectile();
+};

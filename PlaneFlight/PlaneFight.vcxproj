@@ -339,6 +339,7 @@
     <ClCompile Include="Helicoptere.cpp" />
     <ClCompile Include="Jeu.cpp" />
     <ClCompile Include="mainGame.cpp" />
+    <ClCompile Include="Missile.cpp" />
     <ClCompile Include="Nuage.cpp" />
     <ClCompile Include="Projectile.cpp" />
   </ItemGroup>
@@ -350,6 +351,7 @@
     <ClInclude Include="Ciel.h" />
     <ClInclude Include="Helicoptere.h" />
     <ClInclude Include="Jeu.h" />
+    <ClInclude Include="Missile.h" />
     <ClInclude Include="Nuage.h" />
     <ClInclude Include="Projectile.h" />
   </ItemGroup>
