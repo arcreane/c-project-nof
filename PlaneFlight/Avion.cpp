@@ -16,6 +16,7 @@
     this->myProjectiles[3] = new Projectile(vitProj);
 }*/
 Avion::Avion(){}
+
 Avion::~Avion(){}
 
 // getters + setters 

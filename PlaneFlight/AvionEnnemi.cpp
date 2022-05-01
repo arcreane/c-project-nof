@@ -13,6 +13,16 @@ AvionEnnemi::AvionEnnemi(Vector2 pos, int pv, int vitProj) {
     //this->myProjectiles = new Projectile[nbProj];
 }
 
+void AvionEnnemi::setMissile(Missile* missile)
+{
+    this->m1 = missile;
+}
+
+Missile* AvionEnnemi::getMissile()
+{
+    return this->m1;
+}
+
 AvionEnnemi::~AvionEnnemi() {
     UnloadImage(myImage);
 }
@@ -61,45 +71,58 @@ void AvionEnnemi::update() {
         bas = true;
     }
     BeginDrawing();
+
     if (IsKeyPressed(KEY_SPACE) && droite == true) {
-        Missile* m1 = new Missile(1, myPos);
-        m1->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
-        m1->setMyTexture(LoadTextureFromImage(m1->getMyImage()));
+        Missile* m2 = new Missile(1, myPos);
+        m2->setMyImage(LoadImage("Pictures/Bomb_droite.png"));
+        m2->setMyTexture(LoadTextureFromImage(m2->getMyImage()));
         //p1->virtualize();
-        m1->update();
-        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+        //m1->setIsVisible(true);
+        m2->update();
+        DrawTextureV(m2->getMyTexture(), m2->getMyPos(), WHITE);
         //EndDrawing();
+        m1 = m2;
+        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
 
     }
     else if (IsKeyPressed(KEY_SPACE) && gauche == true) {
-        Missile* m1 = new Missile(1, myPos);
+        // Missile* m1 = new Missile(1, myPos);
         m1->setMyImage(LoadImage("Pictures/Bomb_gauche.png"));
         m1->setMyTexture(LoadTextureFromImage(m1->getMyImage()));
         m1->update();
-        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+        //m1->setIsVisible(true);
+        //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
         //EndDrawing();
 
     }
     if (IsKeyPressed(KEY_SPACE) && haut == true) {
-        Missile* m1 = new Missile(1, myPos);
+        // Missile* m1 = new Missile(1, myPos);
         m1->setMyImage(LoadImage("Pictures/Bomb_haut.png"));
         m1->setMyTexture(LoadTextureFromImage(m1->getMyImage()));
         m1->update();
-        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+        //->setIsVisible(true);
+        //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
         //EndDrawing();
 
     }
 
     if (IsKeyPressed(KEY_SPACE) && bas == true) {
-        Missile* m1 = new Missile(1, myPos);
+        //Missile* m1 = new Missile(1, myPos);
         m1->setMyImage(LoadImage("Pictures/Bomb_bas.png"));
         m1->setMyTexture(LoadTextureFromImage(m1->getMyImage()));
         m1->update();
-        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+        //m1->setIsVisible(true);
+        //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
         //EndDrawing();
 
     }
 
+
+    //DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+    /*if (m1->getIsVisible() == true)
+    {
+        DrawTextureV(m1->getMyTexture(), m1->getMyPos(), WHITE);
+    }*/
 };
 
 void AvionEnnemi::virtualize(){

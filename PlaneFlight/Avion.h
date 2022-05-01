@@ -15,6 +15,7 @@ protected:
     bool gauche = false;
     bool bas = false;
     bool haut = false;
+    Missile* m1;
 
 public:
     // Constructeur

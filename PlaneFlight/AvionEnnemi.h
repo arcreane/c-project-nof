@@ -10,9 +10,13 @@ public:
 	// Fonctions héritées de Jeu
 	void update() override;
 	void virtualize() override;
+	
+
 
 	// Fonction en +
 	// void tirerProjectile(Projectile* p, int i, Avion a1) override;
+	void setMissile(Missile* missile);
+	Missile* getMissile();
 
 	// Destructeur
 	~AvionEnnemi();

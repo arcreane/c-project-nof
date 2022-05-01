@@ -18,7 +18,7 @@ Missile::Missile(int vitesse, Vector2 pos)
 
 void Missile::update()
 {
-	this->myPos.x += getMyVitesse();
+	myPos.x += getMyVitesse();
 	
 }
 
@@ -34,6 +34,11 @@ void Missile::virtualize()
 	myTexture = LoadTextureFromImage(myImage);
 
 }
+
+/*void Missile::setIsVisible(bool param)
+{
+	this->isVisible = param;
+}*/
 
 Missile::~Missile()
 {
